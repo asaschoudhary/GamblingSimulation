@@ -6,20 +6,21 @@ bet=1
 #Variable
 win=0
 loss=1
-#Generate the random value
-checkRandom=$(($RANDOM%2))
-		
-if ((checkRandom == win))
-then
-	echo "you stake is win"
-	stake=$(($stake+$bet))
-else
-	echo "SORRY, You stake is loss"
-	stake=$(($stake-$bet))
-fi
-echo $stake;
-
-
-
-
-
+half=$(($stake/2))
+full=$(($half+stake))
+while((half<stake && full>stake))
+do
+	#Generate the random value
+	checkRandom=$(($RANDOM%2))
+	case $checkRandom in
+		0)
+			stake=$((stake+bet))
+			((win++))
+			;;
+		1)
+			stake=$((stake-bet))
+			((loss++))
+			;;
+	esac
+done
+echo $stake
