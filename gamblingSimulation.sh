@@ -5,7 +5,7 @@ bet=1
 #Variable
 win=0
 loss=0
-for((day=1;day<=20;day++))
+for((day=1;day<=30;day++))
 do
 	stake=100
 	temp=$stake
@@ -31,8 +31,20 @@ do
 	then
 		stakeProfit=$((stake-temp))
 		echo "$day- profit:$stakeProfit"
+		 Array_profit[$count_win]=$day
+		((count_win++))
 	else
 		stakeLoss=$((stake-temp))
 		echo "$day- loss:$stakeLoss"
+		Array_loss[$count_loss]=$day
+		((count_loss++))
 	fi
+done
+for value in ${Array_profit[@]}
+do
+echo $value "profit"
+done
+for value in ${Array_loss[@]}
+do 
+echo $value "loss"
 done
