@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "Welcome Gambling simulation"
-#We are taking two constant varible
+#Constant variable
 bet=1
-#Variable
+#We are taking two Variable
 win=0
 loss=0
 for((day=1;day<=30;day++))
